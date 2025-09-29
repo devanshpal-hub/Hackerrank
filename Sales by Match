@@ -1,0 +1,14 @@
+// Using map
+
+int sockMerchant(int n, vector<int> ar) {
+    unordered_map<int, int> color_count;
+    int pairs = 0;
+
+    for (int sock : ar) {
+        color_count[sock]++;
+        if (color_count[sock] % 2 == 0) { // every time count is even, we have a pair
+            pairs++;
+        }
+    }
+    return pairs;
+}
