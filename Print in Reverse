@@ -7,3 +7,20 @@ void reversePrint(SinglyLinkedListNode* llist) {
     cout<<llist->data<<endl;
 
 }
+
+//using stack
+
+void reversePrint(SinglyLinkedListNode* llist) {
+   
+   stack<int> st;
+   SinglyLinkedListNode *temp=llist;
+   while(temp!=nullptr) {
+    st.push(temp->data);
+    temp=temp->next;
+   }
+   while(!st.empty()) {
+    int i=st.top();
+    cout<<i<<endl;
+    st.pop();
+   }
+}
