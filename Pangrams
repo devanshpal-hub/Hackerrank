@@ -1,0 +1,19 @@
+
+
+string pangrams(string s) {
+    string result="";
+    for (char ch : s) {
+        if (ch!=' ') result+=ch;
+    }
+    for (char &ch : result) {
+        ch=toupper(ch);
+    }
+    set<char> st;
+    for (char ch : result) {
+        if (isalpha(ch)) {
+            st.insert(ch);
+        }
+    }
+    if (st.size()==26) return "pangram";
+    else return "not pangram";
+}
