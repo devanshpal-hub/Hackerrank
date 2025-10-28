@@ -1,0 +1,14 @@
+
+
+int camelcase(string s) {
+    if (s=="") return 0;
+    int ans=0;
+    for (char ch : s) {
+        int c = ch;
+        if (c>=65 && c<=90) {
+            ans++;
+        }
+    }
+    
+    return ans+1;
+}
