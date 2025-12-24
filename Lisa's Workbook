@@ -1,0 +1,17 @@
+
+
+int workbook(int n, int k, vector<int> arr) {
+    int page=1,count=0;
+    for (int i=0 ; i<n ; i++) {
+        int prob=1,probs=arr[i];
+        while(prob<=probs) {
+            if (prob==page) {
+                count++;
+            }
+            if (prob%k==0) page++;
+            else if (prob==probs) page++;
+            prob++;
+        }
+    }
+    return count;
+}
