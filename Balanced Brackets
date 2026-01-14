@@ -1,0 +1,26 @@
+
+
+string isBalanced(string s) {
+    stack<char> st;
+
+    for (char ch : s) {
+        // Push opening brackets
+        if (ch == '(' || ch == '{' || ch == '[') {
+            st.push(ch);
+        }
+        // Handle closing brackets
+        else {
+            if (st.empty()) return "NO";
+
+            if ((ch == ')' && st.top() == '(') ||
+                (ch == '}' && st.top() == '{') ||
+                (ch == ']' && st.top() == '[')) {
+                st.pop();
+            } else {
+                return "NO";
+            }
+        }
+    }
+
+    return st.empty() ? "YES" : "NO";
+}
