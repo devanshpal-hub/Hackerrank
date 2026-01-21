@@ -1,0 +1,18 @@
+
+
+vector<int> matchingStrings(vector<string> stringList, vector<string> queries) {
+    vector<int> result;
+    map<string,int>mp;
+    for (string s : stringList) {
+        mp[s]++;
+    }
+    for (string s : queries) {
+        if (mp.find(s)!=mp.end()) {
+            result.push_back(mp[s]);
+        }
+        else {
+            result.push_back(0);
+        }
+    }
+    return result;
+}
