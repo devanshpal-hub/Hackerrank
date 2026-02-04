@@ -1,0 +1,26 @@
+
+
+vector<int> dynamicArray(int n, vector<vector<int>> queries) {
+    vector<vector<int>> seqList(n);  // N empty sequences
+    vector<int> result;              // To store answers of type 2 queries
+    int lastAnswer = 0;
+
+    for (auto &q : queries) {
+        int type = q[0];
+        int x = q[1];
+        int y = q[2];
+
+        int idx = (x ^ lastAnswer) % n;  // Compute the sequence index
+
+        if (type == 1) {
+            // Append y to sequence at idx
+            seqList[idx].push_back(y);
+        } else if (type == 2) {
+            // Retrieve value and update lastAnswer
+            lastAnswer = seqList[idx][y % seqList[idx].size()];
+            result.push_back(lastAnswer);  // Save to result
+        }
+    }
+
+    return result;
+}
