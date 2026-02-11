@@ -1,0 +1,6 @@
+
+
+string solve(long a, long b, long x, long y) {
+    if (__gcd(a,b)==__gcd(x,y)) return "YES";
+    else return "NO";
+}
