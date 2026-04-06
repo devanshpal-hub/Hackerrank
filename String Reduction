@@ -1,0 +1,23 @@
+int stringReduction(string s) {
+    int a = 0, b = 0, c = 0;
+
+    for (char ch : s) {
+        if (ch == 'a') a++;
+        else if (ch == 'b') b++;
+        else c++;
+    }
+
+    // Only one type present
+    if ((a == 0 && b == 0) || 
+        (b == 0 && c == 0) || 
+        (a == 0 && c == 0)) {
+        return s.length();
+    }
+
+    // All even or all odd
+    if ((a % 2 == b % 2) && (b % 2 == c % 2)) {
+        return 2;
+    }
+
+    return 1;
+}
